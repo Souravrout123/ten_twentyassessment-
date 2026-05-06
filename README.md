@@ -1,16 +1,91 @@
-# React + Vite
+# ⚡ Timesheet App – Setup (Vite + React + Tailwind)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1️⃣ Create Project (Vite)
 
-Currently, two official plugins are available:
+```bash
+npm create vite@latest timesheet-app
+cd timesheet-app
+npm install
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+👉 Select:
 
-## React Compiler
+* Framework: **React**
+* Variant: **JavaScript**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 2️⃣ Install Dependencies
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install react-router-dom
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+---
+
+## 3️⃣ Configure Tailwind
+
+### Update `tailwind.config.js`
+
+```js
+export default {
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+### Add in `src/index.css`
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+---
+
+## 4️⃣ Setup React Router
+
+* Create pages: `Login.jsx`, `Dashboard.jsx`
+* Configure routes in `App.jsx`
+
+---
+
+## 5️⃣ Run Project
+
+```bash
+npm run dev
+```
+
+App runs on: http://localhost:5173
+
+---
+
+## 6️⃣ Build Project
+
+```bash
+npm run build
+```
+
+---
+
+## 7️⃣ Project Flow
+
+* Login with dummy auth
+* Store token in `sessionStorage`
+* Redirect to `/dashboard`
+* Protected routes
+* Dashboard with timesheet table + modal
+
+---
+
+## 📌 Notes
+
+* Uses Vite for fast development (HMR)
+* Tailwind for styling
+* No backend (dummy authentication)
